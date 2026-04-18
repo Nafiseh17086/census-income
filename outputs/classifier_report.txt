@@ -1,0 +1,24 @@
+Classifier evaluation summary
+========================================
+Rows after dedup: 196,294
+Train/Val/Test : 137,400 / 29,449 / 29,445
+Positive rate (train / test): 0.0631 / 0.0631
+Transformed feature dim     : 490
+
+Logistic regression (baseline)
+  test ROC-AUC = 0.8227   PR-AUC = 0.1672   F1 = 0.2867  @ thr=1.000
+LightGBM (tuned)
+  test ROC-AUC = 0.9346   PR-AUC = 0.5381   F1 = 0.5414  @ thr=0.285
+  best_iteration = 6
+
+Top 10 features by gain:
+  num__weeks_worked_in_year                                      942068207
+  num__age                                                       182008419
+  num__dividends_from_stocks                                     169930050
+  cat__tax_filer_stat_Nonfiler                                   156038830
+  cat__sex_Female                                                 95824413
+  cat__education_High school graduate                             58429771
+  num__capital_gains                                              57884939
+  cat__major_occupation_code_Other service                        54224511
+  cat__major_occupation_code_Adm support including clerical       34715879
+  cat__detailed_household_summary_in_household_Householder        31226181

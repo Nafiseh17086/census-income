@@ -1,0 +1,119 @@
+{
+  "n_rows_raw": 199523,
+  "n_rows_dedup": 196294,
+  "n_columns": 42,
+  "label_distribution_unweighted": {
+    "<=50K": 187141,
+    ">50K": 12382
+  },
+  "label_distribution_weighted": {
+    "<=50K": 325004647.22,
+    ">50K": 22241245.25
+  },
+  "positive_rate_unweighted": 0.06205800834991455,
+  "positive_rate_weighted": 0.06405041998278355,
+  "columns_with_missing_top10": {
+    "migration_code_change_in_msa": 0.4996717170451527,
+    "migration_code_change_in_reg": 0.4996717170451527,
+    "migration_code_move_within_reg": 0.4996717170451527,
+    "migration_prev_res_in_sunbelt": 0.4996717170451527,
+    "country_of_birth_father": 0.03364524390671752,
+    "country_of_birth_mother": 0.030668143522300687,
+    "country_of_birth_self": 0.017005558256441615,
+    "hispanic_origin": 0.004380447366970224,
+    "state_of_previous_residence": 0.003548463084456429
+  },
+  "not_in_universe_top10": {
+    "fill_inc_questionnaire_for_veterans_admin": 0.9900562842379074,
+    "reason_for_unemployment": 0.9695774421996461,
+    "enroll_in_edu_inst_last_wk": 0.9369496248552799,
+    "region_of_previous_residence": 0.920946457300662,
+    "state_of_previous_residence": 0.920946457300662,
+    "member_of_a_labor_union": 0.9044521183021507,
+    "family_members_under_18": 0.7228840785272875,
+    "live_in_this_house_1_year_ago": 0.5072698385649774,
+    "major_industry_code": 0.5046235271121625,
+    "major_occupation_code": 0.5046235271121625
+  },
+  "numeric_describe": {
+    "age": {
+      "count": 199523.0,
+      "mean": 34.49,
+      "std": 22.31,
+      "min": 0.0,
+      "25%": 15.0,
+      "50%": 33.0,
+      "75%": 50.0,
+      "max": 90.0
+    },
+    "wage_per_hour": {
+      "count": 199523.0,
+      "mean": 55.43,
+      "std": 274.9,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.0,
+      "max": 9999.0
+    },
+    "capital_gains": {
+      "count": 199523.0,
+      "mean": 434.72,
+      "std": 4697.53,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.0,
+      "max": 99999.0
+    },
+    "capital_losses": {
+      "count": 199523.0,
+      "mean": 37.31,
+      "std": 271.9,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.0,
+      "max": 4608.0
+    },
+    "dividends_from_stocks": {
+      "count": 199523.0,
+      "mean": 197.53,
+      "std": 1984.16,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.0,
+      "max": 99999.0
+    },
+    "num_persons_worked_for_employer": {
+      "count": 199523.0,
+      "mean": 1.96,
+      "std": 2.37,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 1.0,
+      "75%": 4.0,
+      "max": 6.0
+    },
+    "weeks_worked_in_year": {
+      "count": 199523.0,
+      "mean": 23.17,
+      "std": 24.41,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 8.0,
+      "75%": 52.0,
+      "max": 52.0
+    }
+  },
+  "n_categorical": 33,
+  "n_numeric": 7,
+  "figures": [
+    "01_label_distribution.png",
+    "02_age_by_class.png",
+    "03_education_pos_rate.png",
+    "04_capital_gains.png",
+    "05_missingness.png"
+  ]
+}

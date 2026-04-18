@@ -1,0 +1,20 @@
+# ---- data (too large / not ours to redistribute) ----
+data/census-bureau.data
+*.csv.gz
+
+# ---- python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env/
+.ipynb_checkpoints/
+
+# ---- os ----
+.DS_Store
+Thumbs.db
+
+# ---- editor ----
+.vscode/
+.idea/
+*.swp
