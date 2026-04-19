@@ -124,6 +124,32 @@ splitting. Final sizes: **137,400 / 29,449 / 29,445** rows.
 | Logistic Regression (L2, `class_weight='balanced'`, saga) | Interpretable baseline; bounds what "simple" can do on this feature space. |
 | **LightGBM** (binary objective, `scale_pos_weight` = neg/pos ratio, early stopping on validation AUC) | Main model; handles mixed categoricals + non-linear interactions + class imbalance well and is cheap to train. |
 
+**Why LightGBM (and not a neural net, or something simpler)?**
+
+The dataset is ~196k rows of mixed-type tabular data with a ~6% positive class
+and non-trivial missingness — the sweet spot for gradient-boosted trees.
+LightGBM was chosen over XGBoost / CatBoost / a deep model for five concrete
+reasons:
+
+* **Tabular mixed-type data.** Trees beat deep models on this kind of data in
+  virtually every benchmark; we don't need to hand-engineer interactions like
+  *age × education* — the ensemble discovers them.
+* **Severe class imbalance.** `scale_pos_weight` plus `sample_weight` lets the
+  CPS sampling weight flow through training *and* evaluation cleanly, without
+  resampling or synthesising rows (no SMOTE, no information loss).
+* **Missingness & rare categories.** LightGBM learns the optimal split direction
+  for NaNs; `min_frequency=50` in the one-hot encoder groups rare categorical
+  levels so they don't over-fit.
+* **Speed and footprint.** Early-stopped at 6 trees, ~83 KB serialised, < 1 s
+  to train on 137k rows — easy to re-fit on new data or move to production.
+* **Adequate interpretability.** Gain-based feature importance ships out of
+  the box (top-10 in §4.4); SHAP can be layered on for row-level explanations
+  if stakeholders need them.
+
+The logistic regression baseline exists to answer "how much does the tree model
+actually buy us?" — the answer is **+0.11 ROC-AUC and +0.37 PR-AUC**, which is
+a lot on a problem this imbalanced.
+
 Hyperparameters were set to sensible defaults (`num_leaves=63`,
 `learning_rate=0.05`, `min_data_in_leaf=100`, `feature_fraction=0.9`, 600
 boosting rounds capped by 30-round early stopping on validation AUC). Given

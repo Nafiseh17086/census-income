@@ -17,6 +17,10 @@ The full write-up is in [`report.md`](report.md).
 | Logistic Regression (baseline) | 0.823 | 0.167 | 0.287 | 29,445 |
 | **LightGBM (final)** | **0.935** | **0.538** | **0.541** | 29,445 |
 
+LightGBM was chosen for its strong performance on imbalanced tabular data with
+minimal preprocessing and native handling of missing values — see
+[`report.md` §4.2](report.md#42-models) for the full rationale.
+
 Segmentation: **k = 7** selected by silhouette; segments range from high-income
 professionals (31% >\$50k) to retirees and children — see
 [`outputs/segment_profiles.csv`](outputs/segment_profiles.csv).
